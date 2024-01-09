@@ -11,7 +11,8 @@ class Contact(models.Model):
                                                       # 2024-01-06 07:20:15.293047
                                                       
     class Meta:
-        ordering =['-create_date']                                                  
+        ordering =['-create_date']
+                                                          
     def __str__(self):
         return self.name                                                  
                                                       
