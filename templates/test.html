@@ -7,7 +7,8 @@
     <title>test</title>
 </head>
 <body>
-    {{posts}}
+    <p>{{post.title}}</p>
+    {% comment %} {{posts}}
     {% for post in posts %}
         {% if post.status == 0 %}
         <p>not published  yet</P>
@@ -16,6 +17,5 @@
         <p>{{post.content}}</p>
         <small>{{post.published_date}}</small>
         {% endif %}
-    {% endfor %}
-
+    {% endfor %} {% endcomment %}
 </html>
