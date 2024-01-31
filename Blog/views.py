@@ -23,7 +23,7 @@ def blog_view(requests):
 def blog_single(requests,pid):
     post = get_object_or_404(Post, pk=pid)
     context = {'post': post}
-    return render(requests, 'blog/blog-single.html',context)
+    return render(requests, 'blog/blog-single.html', context)
 
 
 def test(request, pid):
