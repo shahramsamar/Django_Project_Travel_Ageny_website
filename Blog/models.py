@@ -6,7 +6,7 @@ from django.db import models
 class Post(models.Model):
 
     # image
-    # author
+    author = models.CharField(max_length=255)
     title = models.CharField(max_length=255)
     content = models.TextField()
     # tag
