@@ -107,7 +107,7 @@
             </ul>
             <div class="user-details row">
               <p class="user-name col-lg-12 col-md-12 col-6">
-                <a href="#">Mark wiens</a> <span class="lnr lnr-user"></span>
+                <a href="#">{{author}}</a> <span class="lnr lnr-user"></span>
               </p>
               <p class="date col-lg-12 col-md-12 col-6">
                 <a href="#">{{post.published_date}}</a>
@@ -129,7 +129,7 @@
                 alt=""
               />
             </div>
-            <a class="posts-title" href="#"
+            <a class="posts-title" href="/Blog/post-{{post.id}}"
               ><h3>{{post.title}}</h3></a
             >
             <p class="excert">
