@@ -135,7 +135,7 @@
             <p class="excert">
               {{post.content}}
             </p>
-            <a href="#"
+            <a href="{% url 'blog:single' pid=post.id %}"
             " class="primary-btn">View More</a>
           </div>
         </div>
