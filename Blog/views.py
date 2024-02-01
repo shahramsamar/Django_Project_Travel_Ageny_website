@@ -4,12 +4,6 @@ from django.utils import timezone
 
 
 
-# def counted_views(requests, post_id):
-#     blog_object = Post.objects.get(id=post_id)
-#     blog_object.counted_views += 1
-#     blog_object.save()
-#     return blog_object
-
 
 def blog_view(requests):
     # date_time = timezone.now()
@@ -18,26 +12,25 @@ def blog_view(requests):
     # view_count.counted_views += 1
     # view_count.save()
     posts = Post.objects.filter(status=1)
+    # post = get_object_or_404(Post, pk=pid)
     context = {'posts': posts}
     return render(requests, 'blog/blog-home.html', context)
 
 
 
 def blog_single(requests, pid):
+    date_time = timezone.now()
+    date = Post.objects.filter(published_date__lte = date_time)
+    
     view_count = Post.objects.get(id=pid)
     view_count.counted_views += 1
     view_count.save()
+    
     post = get_object_or_404(Post, pk=pid)
     posts = Post.objects.filter(status=1)
-    context = {'post': post ,'posts': posts}
+    
+    context = {'post': post ,'posts': posts, 'date':date }
+
     return render(requests, 'blog/blog-single.html', context)
 
 
-
-
-
-
-def test(request, pid):
-    post = get_object_or_404(Post, pk=pid)
-    context = {'post': post}
-    return render(request, 'test.html', context)
