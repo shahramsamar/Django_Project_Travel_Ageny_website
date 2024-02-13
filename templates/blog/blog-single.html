@@ -90,20 +90,24 @@
                   ><span class="lnr text-white lnr-arrow-left"></span
                 ></a>
               </div>
+
               <div class="detials">
+                {% if previous.status == 1 %}
                 <p>Prev Post</p>
-                <li><img src="{{previous.image.url}}" alt=""></li>
-                <a href="{% url 'blog:single' pid=previous.id %}"><h4>{{previous}}</h4></a>
+                    <li><img src="{{previous.image.url}}" alt=""></li>
+                   <a href="{% url 'blog:single' pid=previous.id %}"><h4>{{previous}}</h4></a>
+                {% endif %}
               </div>
-              
             </div>
             <div
               class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center"
             >
               <div class="detials">
+                {% if next.status == 1 %}
                 <p>Next Post</p>
-                <li><img src="{{next.image.url}}"alt=""/></li>
-                <a href="{% url 'blog:single' pid=next.id %}"><h4>{{next}}</h4></a>
+                  <li><img src="{{next.image.url}}"alt=""/></li>
+                  <a href="{% url 'blog:single' pid=next.id %}"><h4>{{next}}</h4></a>
+                {% endif %}
               </div>
 
               <div class="arrow">
