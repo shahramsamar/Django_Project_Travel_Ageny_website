@@ -134,7 +134,7 @@
             >
             <p class="excert">
               {% comment %} {{post.content|truncatechars:10}} {% endcomment %}
-              {{content|truncatewords:3}}
+              {{post.content|truncatewords:3}}
 
             </p>
             <a href="{% url 'blog:single' pid=post.id %}"
