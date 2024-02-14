@@ -33,7 +33,10 @@
           </div>
           <div class="col-lg-3 col-md-3 meta-details">
             <ul class="tags">
-              {{post.category.all|join:","}}
+              {% comment %} {{post.category.all|join:","}} {% endcomment %}
+              {% for cat in post.category.all %}
+                <a href="#" >{{cat.name}}<a/> {% if not forloop.last %},{% endif %}
+              {% endfor %}
 
             </ul>
             <div class="user-details row">
