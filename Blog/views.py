@@ -7,7 +7,7 @@ from django.utils import timezone
 
 def blog_view(requests):
     date_time = timezone.now()
-    posts = Post.objects.filter(status=1,published_date__lte=date_time)
+    posts = Post.objects.filter(status=1, published_date__lte=date_time)
     context = {'posts': posts}
     return render(requests, 'blog/blog-home.html', context)
 
@@ -16,7 +16,6 @@ def blog_view(requests):
 def blog_single(requests, pid):
     date_time = timezone.now()
     post = get_object_or_404(Post, pk=pid, status=1, published_date__lte=date_time)
-    # current_posts =Post.objects.get(pk =pid)
     related_posts = Post.objects.filter(status=1, published_date__lte=date_time)
     post.counted_views += 1
     post.save()
@@ -25,3 +24,5 @@ def blog_single(requests, pid):
     return render(requests, 'blog/blog-single.html', context)
 
 
+def test(requests):
+    return render(requests, 'test.html')
