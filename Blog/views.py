@@ -5,15 +5,15 @@ from django.utils import timezone
 
 
 
-def blog_view(requests):
+def blog_view(request):
     date_time = timezone.now()
     posts = Post.objects.filter(status=1, published_date__lte=date_time)
     context = {'posts': posts}
-    return render(requests, 'blog/blog-home.html', context)
+    return render(request, 'blog/blog-home.html', context)
 
 
 
-def blog_single(requests, pid):
+def blog_single(request, pid):
     date_time = timezone.now()
     post = get_object_or_404(Post, pk=pid, status=1, published_date__lte=date_time)
     related_posts = Post.objects.filter(status=1, published_date__lte=date_time)
@@ -21,8 +21,16 @@ def blog_single(requests, pid):
     post.save()
     context = {'post':post , 'next':related_posts.filter(id__gt=post.id).order_by('id').first(),
                'previous':related_posts.filter(id__lt=post.id).order_by('-id').first() }
-    return render(requests, 'blog/blog-single.html', context)
+    return render(request, 'blog/blog-single.html', context)
+
+def blog_category(request, cat_name):
+    posts = Post.objects.filter(status=1)
+    posts = posts.filter(category__name=cat_name)
+    context = {'posts':posts}
+    return render(request,'blog/blog-home.html', context )
+    
+    
 
 
-def test(requests):
-    return render(requests, 'test.html')
+def test(request):
+    return render(request, 'test.html')
