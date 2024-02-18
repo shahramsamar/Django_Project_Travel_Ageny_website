@@ -240,6 +240,7 @@ figure {
 }
 
 img {
+  max-width:100px;
   vertical-align: middle;
   border-style: none;
 }
