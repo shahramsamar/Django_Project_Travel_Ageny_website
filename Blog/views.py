@@ -20,8 +20,7 @@ def blog_view(request, **kwargs):
         posts = posts.page(1)
     except EmptyPage:
         posts = posts.page(1) 
-    # except posts.DoesNotExist:
-    #          posts = posts.get_page(1)    
+  
     context = {'posts': posts}
     return render(request, 'blog/blog-home.html', context)
 
