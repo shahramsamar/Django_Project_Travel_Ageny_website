@@ -40,7 +40,7 @@ def post_category():
 
 @register.inclusion_tag('website/website-latest-post.html')
 def latest_post_website():
-    posts = Post.objects.filter(status=1).order_by('published_date')
+    posts = Post.objects.filter(status=1).order_by('published_date')[:6]
     return {'posts': posts }
 
 
