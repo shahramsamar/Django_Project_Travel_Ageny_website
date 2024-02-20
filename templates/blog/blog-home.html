@@ -103,7 +103,6 @@
               {% for cat in post.category.all %}
               <a href="{% url "blog:category" cat_name=cat.name %}" >{{cat.name}}<a/> {% if not forloop.last %},{% endif %}
               {% endfor %} 
-              {% comment %} {{post.category.all|join:","}} {% endcomment %}
             </ul>
             <div class="user-details row">
               <p class="user-name col-lg-12 col-md-12 col-6">
@@ -133,7 +132,6 @@
               ><h3>{{post.title}}</h3></a
             >
             <p class="excert">
-              {% comment %} {{post.content|truncatechars:10}} {% endcomment %}
               {{post.content|truncatewords:3}}
 
             </p>

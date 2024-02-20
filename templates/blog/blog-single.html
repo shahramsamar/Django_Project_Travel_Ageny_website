@@ -33,22 +33,23 @@
           </div>
           <div class="col-lg-3 col-md-3 meta-details">
             <ul class="tags">
-              {% comment %} {{post.category.all|join:","}} {% endcomment %}
-              {% for cat in post.category.all %}
-                <a href="{%  url "blog:category" cat_name=cat.name %}" >{{cat.name}}<a/> {% if not forloop.last %},{% endif %}
-              {% endfor %}
-
+              {% comment %} {{post.category.all|join:","}} {% endcomment %} {%
+              for cat in post.category.all %} <a href="{% url "blog:category"
+              cat_name=cat.name %}" >{{cat.name}}<a />
+              {% if not forloop.last %},{% endif %} {% endfor %}
             </ul>
             <div class="user-details row">
               <p class="user-name col-lg-12 col-md-12 col-6">
-                <a href="#">{{post.author}}</a> <span class="lnr lnr-user"></span>
+                <a href="#">{{post.author}}</a>
+                <span class="lnr lnr-user"></span>
               </p>
               <p class="date col-lg-12 col-md-12 col-6">
                 <a href="#">{{post.published_date | date:"d M Y"}}</a>
                 <span class="lnr lnr-calendar-full"></span>
               </p>
               <p class="view col-lg-12 col-md-12 col-6">
-                <a href="#">{{post.counted_views}}Views</a> <span class="lnr lnr-eye"></span>
+                <a href="#">{{post.counted_views}}Views</a>
+                <span class="lnr lnr-eye"></span>
               </p>
               <p class="comments col-lg-12 col-md-12 col-6">
                 <a href="#">06 Comments</a> <span class="lnr lnr-bubble"></span>
@@ -70,13 +71,8 @@
             </div>
           </div>
           <div class="col-lg-9 col-md-9">
-            <h3 class="mt-20 mb-20">
-              {{post.title}}
-            </h3>
-            <p class="excert">
-              {{post.content|truncatewords:100}}
-            </p>
-
+            <h3 class="mt-20 mb-20">{{post.title}}</h3>
+            <p class="excert">{{post.content|truncatewords:100}}</p>
           </div>
         </div>
         <div class="navigation-area">
@@ -84,11 +80,6 @@
             <div
               class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center"
             >
-              {% comment %} <div class="thumb">
-                <a href="#"
-                  ><img class="img-fluid" src="{% static 'img/blog/prev.jpg'%}" alt=""
-                /></a>
-              </div> {% endcomment %}
               <div class="arrow">
                 <a href="#"
                   ><span class="lnr text-white lnr-arrow-left"></span
@@ -98,8 +89,16 @@
               <div class="detials">
                 {% if previous.status == 1 %}
                 <p>Prev Post</p>
-                    <li><img src="{{previous.image.url}}"  href="{% url 'blog:single' pid=previous.id %}" alt=""></li>
-                   <a href="{% url 'blog:single' pid=previous.id %}"><h4>{{previous}}</h4></a>
+                <li>
+                  <img
+                    src="{{previous.image.url}}"
+                    href="{% url 'blog:single' pid=previous.id %}"
+                    alt=""
+                  />
+                </li>
+                <a href="{% url 'blog:single' pid=previous.id %}"
+                  ><h4>{{previous}}</h4></a
+                >
                 {% endif %}
               </div>
             </div>
@@ -109,8 +108,16 @@
               <div class="detials">
                 {% if next.status == 1 %}
                 <p>Next Post</p>
-                  <li><img src="{{next.image.url}}" href="{% url 'blog:single' pid=next.id %}" alt=""/></li>
-                  <a href="{% url 'blog:single' pid=next.id %}"><h4>{{next}}</h4></a>
+                <li>
+                  <img
+                    src="{{next.image.url}}"
+                    href="{% url 'blog:single' pid=next.id %}"
+                    alt=""
+                  />
+                </li>
+                <a href="{% url 'blog:single' pid=next.id %}"
+                  ><h4>{{next}}</h4></a
+                >
                 {% endif %}
               </div>
 
@@ -119,11 +126,6 @@
                   ><span class="lnr text-white lnr-arrow-right"></span
                 ></a>
               </div>
-              {% comment %} <div class="thumb">
-                <a href="#"
-                  ><img class="img-fluid" src="{% static 'img/blog/next.jpg' %}" alt=""
-                /></a>
-              </div> {% endcomment %}
             </div>
           </div>
         </div>
@@ -267,11 +269,9 @@
       </div>
       <div class="col-lg-4 sidebar-widgets">
         <div class="widget-wrap">
-            {% include "blog/blog-search.html" %}
-            {% include "blog/blog-writer.html" %}
-            {% latest_posts %}
-            {% post_category %}
-            {% include "blog/blog-ads.html" %}
+          {% include "blog/blog-search.html" %} {% include
+          "blog/blog-writer.html" %} {% latest_posts %} {% post_category %} {%
+          include "blog/blog-ads.html" %}
           <div class="single-sidebar-widget newsletter-widget">
             <h4 class="newsletter-title">Newsletter</h4>
             <p>
