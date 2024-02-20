@@ -33,10 +33,9 @@
           </div>
           <div class="col-lg-3 col-md-3 meta-details">
             <ul class="tags">
-              {% comment %} {{post.category.all|join:","}} {% endcomment %} {%
-              for cat in post.category.all %} <a href="{% url "blog:category"
-              cat_name=cat.name %}" >{{cat.name}}<a />
-              {% if not forloop.last %},{% endif %} {% endfor %}
+              {%for cat in post.category.all %}
+               <a href="{% url "blog:category" cat_name=cat.name %}" >{{cat.name}}<a />{% if not forloop.last %},{% endif %} 
+              {% endfor %}
             </ul>
             <div class="user-details row">
               <p class="user-name col-lg-12 col-md-12 col-6">
@@ -269,9 +268,11 @@
       </div>
       <div class="col-lg-4 sidebar-widgets">
         <div class="widget-wrap">
-          {% include "blog/blog-search.html" %} {% include
-          "blog/blog-writer.html" %} {% latest_posts %} {% post_category %} {%
-          include "blog/blog-ads.html" %}
+          {% include "blog/blog-search.html" %} 
+          {% include "blog/blog-writer.html" %}
+          {% latest_posts %} 
+          {% post_category %} 
+          {% include "blog/blog-ads.html" %}
           <div class="single-sidebar-widget newsletter-widget">
             <h4 class="newsletter-title">Newsletter</h4>
             <p>
