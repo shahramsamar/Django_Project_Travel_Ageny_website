@@ -9,13 +9,13 @@
     <title>test</title>
 </head>
 <body>
-    <h1>This is a testing page </h1>
+    {% comment %} <h1>This is a testing page </h1>
     <p>test : {% totalposts as count %}</p>
     <p>count post :{{ count }}</p>
     <p>test : {% posts as post %}</p>
     {% for post in post %}
        <p> {{post}}</p>
-    {% endfor %} 
+    {% endfor %}  {% endcomment %}
 
 
     {% comment %} {{posts}}
@@ -28,4 +28,21 @@
         <small>{{post.published_date}}</small>
         {% endif %}
     {% endfor %} {% endcomment %}
+
+
+
+
+    <form action="{% url 'website:test' %}" method ="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        {% comment %} <label>name:</label>
+        <input name="name" type="text"><br> {% endcomment %}
+        {% comment %} <label>email:</label>
+        <input name="email" type="email"><br>
+        <label>subject:</label>
+        <input name="subject" type="text"><br>
+        <label>message:</label>
+        <input name="message" type="text"><br> {% endcomment %}
+        <button type ="submit">submit</button>
+    </form>
 </html>

@@ -56,5 +56,3 @@ def blog_search(request):
     return render(request, 'blog/blog-home.html', context)
 
 
-def test(request):
-    return render(request, 'test.html')
