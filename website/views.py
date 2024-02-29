@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from website.models import Contact
 from django.http import HttpResponse
-from website.forms import NameForm
+from website.forms import NameForm, ContactForm
 
 
 
@@ -18,17 +18,19 @@ def contact_view(request):
 
 def test_view(request):
     if request.method == "POST":
-            form = NameForm(request.POST)
+            form = ContactForm(request.POST)
             if form.is_valid():
-                name = form.changed_data['name']
-                email = form.changed_data['email']
-                subject = form.changed_data['subject']
-                message = form.changed_data['message']
+                name = form.cleaned_data['name']
+                email = form.cleaned_data['email']
+                subject = form.cleaned_data['subject']
+                message = form.cleaned_data['message']
                 print(name, email, subject, message)
                 return HttpResponse("done")
             else:
                 return HttpResponse("not valid")
             
+    form = ContactForm()
+    return render(request, 'test.html', {'form': form})
 
     #  name = request.POST.get('name')
     #  print(name)
@@ -42,5 +44,3 @@ def test_view(request):
     #  contact.message = message 
     #  contact.save()
     #  print(name, email ,subject, message)
-    form = NameForm()
-    return render(request, 'test.html', {'form': form})
