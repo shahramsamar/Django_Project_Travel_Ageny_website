@@ -12,7 +12,9 @@ class ContactForm(forms.ModelForm):
     
     class Meta:
         model = Contact
-        fields = '__all__'    
+        # fields =['name','subject', 'email', 'message']
+        fields = '__all__'  
+
 
 class NewsletterForm(forms.ModelForm):
     

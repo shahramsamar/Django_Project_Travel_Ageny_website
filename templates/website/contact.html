@@ -65,7 +65,7 @@
                 onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email" />
 
               <input name="subject" placeholder="Enter subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter subject'"
-                class="common-input mb-20 form-control" required=""  type="text" />
+              class="common-input mb-20 form-control"   type="text" />
             </div>
 
             <div class="col-lg-6 form-group">
@@ -88,9 +88,9 @@
           <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
           {% endfor %}
       </ul>
-      {% endif %} {% endcomment %}
+      {% endif %}  {% endcomment %}
       
-  {% if messages %}
+{% if messages %}
   {% for message in messages %}
     <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
   {% endfor %}
@@ -112,7 +112,8 @@
       {{ form.non_field_errors }}
     {% endif %}
   </div>
-{% endif %}
+{% endif %} 
+
     </div>
   </div>
 </section>

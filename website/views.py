@@ -17,8 +17,20 @@ def about_view(request):
 def contact_view(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
+        contact = Contact()
         if form.is_valid():
-            form.save()
+ 
+            contact.name ='unknown'
+            contact.email = request.POST.get('email')
+            contact.subject = request.POST.get('subject')
+            contact.message = request.POST.get('message')
+            
+            # email = form.cleaned_data['email']
+            # subject = form.cleaned_data['subject']
+            # message = form.cleaned_data['message']
+            # print(name, email, subject, message)
+            # form.save()
+            contact.save()
             messages.add_message(request, messages.SUCCESS,'your ticket submited successfully')
         else:
             messages.add_message(request, messages.ERROR,'your ticket  did not submited successfully')
@@ -34,7 +46,7 @@ def newsletter_view(request):
             form.save()
             return HttpResponseRedirect("/")
         else:
-                return HttpResponseRedirect("/")
+            return HttpResponseRedirect("/")
 
 def test_view(request):
     if request.method == "POST":
