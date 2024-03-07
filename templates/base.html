@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -41,6 +40,7 @@
                           <ul>
                               <li><a href="#">Visit Us</a></li>
                               <li><a href="#">Buy Tickets</a></li>
+
                           </ul>			
                       </div>
                       <div class="col-lg-6 col-sm-6 col-6 header-top-right">
@@ -73,6 +73,7 @@
 
         {% block content %}
         {% endblock  %} 
+		<li>{% include 'messages.html' %}</li>
 
         	<!-- start footer Area -->		
 			<footer class="footer-area section-gap">
