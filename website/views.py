@@ -17,20 +17,10 @@ def about_view(request):
 def contact_view(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
-        contact = Contact()
+        request.POST._mutable = True
+        request.POST['name'] = 'Anonymous'
         if form.is_valid():
- 
-            contact.name ='unknown'
-            contact.email = request.POST.get('email')
-            contact.subject = request.POST.get('subject')
-            contact.message = request.POST.get('message')
-            
-            # email = form.cleaned_data['email']
-            # subject = form.cleaned_data['subject']
-            # message = form.cleaned_data['message']
-            # print(name, email, subject, message)
-            # form.save()
-            contact.save()
+            form.save()
             messages.add_message(request, messages.SUCCESS,'your ticket submited successfully')
         else:
             messages.add_message(request, messages.ERROR,'your ticket  did not submited successfully')
