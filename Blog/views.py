@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from Blog.models import Post
+from blog.models import Post
 from django.utils import timezone
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
