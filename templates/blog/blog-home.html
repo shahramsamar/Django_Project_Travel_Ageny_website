@@ -140,17 +140,17 @@
           </div>
         </div>
         {% endfor %}
-        <nav class="blog-pagination justify-content-center d-flex">
 
+        <nav class="blog-pagination justify-content-center d-flex">
           <ul class="pagination">
             {% if posts.has_previous %}
-            <li class="page-item">
-              <a href="?page={{ posts.previous_page_number }}" class="page-link" aria-label="Previous">
-                <span aria-hidden="true">
-                  <span class="lnr lnr-chevron-left"></span>
-                </span>
-              </a>
-            </li>
+             <li class="page-item">
+                <a href="?page={{ posts.previous_page_number }}" class="page-link" aria-label="Previous">
+                  <span aria-hidden="true">
+                   <span class="lnr lnr-chevron-left"></span>
+                 </span>
+                </a>
+              </li>
             {% endif %}
             
             {% for i in posts.paginator.page_range %}
