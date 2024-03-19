@@ -1,2 +1,2 @@
-# MY_SITE
+# core
  MY FIRST SITE
