@@ -40,10 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django_extensions',
     'django.contrib.sites',
+    'django.contrib.sitemaps',
     'website.apps.WebsiteConfig',
     'blog'
 ]
-SITE_ID = 2
+SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
