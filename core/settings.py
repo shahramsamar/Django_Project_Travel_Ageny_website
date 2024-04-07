@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'robots',
     'debug_toolbar',
     'taggit',
+    'django_summernote',
+    
     
 ]
 # site framework
@@ -55,6 +57,27 @@ SITE_ID = 1
 ROBOTS_USE_HOST = True
 ROBOTS_USE_SITEMAP = True
 
+# SUMMERNOTE CONFIG
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+SUMMERNOTE_THEME = 'bs4'  # Show summernote with Bootstrap4
+SUMMERNOTE_CONFIG = {
+    
+    # Using SummernoteWidget - iframe mode, default
+    'iframe': True,
+
+        # Toolbar customization
+        # https://summernote.org/deep-dive/#custom-toolbar-popover
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']],
+        ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

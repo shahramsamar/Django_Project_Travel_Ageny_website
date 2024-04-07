@@ -71,7 +71,7 @@
           </div>
           <div class="col-lg-9 col-md-9">
             <h3 class="mt-20 mb-20">{{post.title}}</h3>
-            <p class="excert">{{post.content|truncatewords:100}}</p>
+            <p class="excert">{{post.content|truncatewords:100|safe}}</p>
           </div>
         </div>
         <div class="navigation-area">
@@ -300,7 +300,7 @@
               <a href="#" class="bbtns">Subcribe</a>
             </div>
             <p class="text-bottom">You can unsubscribe at any time</p>
-          {% include "blog/blog-tags.html"%}
+            {% include "blog/blog-tags.html"%}
           </div>
         </div>
       </div>

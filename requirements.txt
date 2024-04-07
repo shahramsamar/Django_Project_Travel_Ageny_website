@@ -1,10 +1,14 @@
 asgiref==3.7.2
+bleach==6.1.0
 Django==4.2.7
 django-debug-toolbar==4.3.0
 django-extensions==3.2.3
 django-robots==6.1
+django-summernote==0.8.20.0
 django-taggit==5.0.1
 extensions==0.4
 pillow==10.2.0
+six==1.16.0
 sqlparse==0.4.4
 tzdata==2023.3
+webencodings==0.5.1
