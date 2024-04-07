@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'blog',
     'robots',
     'debug_toolbar',
+    'taggit',
+    
 ]
 # site framework
 SITE_ID = 1

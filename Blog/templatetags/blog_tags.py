@@ -45,4 +45,3 @@ def latest_post_website():
     posts = Post.objects.filter(status=1, published_date__lte=date_time).order_by('published_date')
     return {'posts': posts }
 
-
