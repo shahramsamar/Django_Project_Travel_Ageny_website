@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from blog.models import Post, Comment
 from django.utils import timezone
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from blog.forms import CommentForm
+from django.contrib import messages
+
 
 
 def blog_view(request, **kwargs):
@@ -31,19 +34,27 @@ def blog_view(request, **kwargs):
 
 
 def blog_single(request, pid):
+    if request.method =="POST":
+        form= CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS,'your comment submited successfully')
+        else:
+            messages.add_message(request, messages.ERROR, 'your comment  did not submited successfully')    
+      
     date_time = timezone.now()
     post = get_object_or_404(Post, pk=pid, status=1,
-                             published_date__lte=date_time)
+                                published_date__lte=date_time)
 
     related_posts = Post.objects.filter(
-        status=1, published_date__lte=date_time)
+            status=1, published_date__lte=date_time)
     post.counted_views += 1
     post.save()
     comments = Comment.objects.all() and Comment.objects.filter(approved=True)
 
-
-    context = {'post': post,'comments': comments, 'next': related_posts.filter(id__gt=post.id).order_by('id').first(),
-               'previous': related_posts.filter(id__lt=post.id).order_by('-id').first()}
+    form = CommentForm()
+    context = {'post': post,'comments': comments, 'form':form , 'next': related_posts.filter(id__gt=post.id).order_by('id').first(),
+                'previous': related_posts.filter(id__lt=post.id).order_by('-id').first()}
     return render(request, 'blog/blog-single.html', context)
 
 

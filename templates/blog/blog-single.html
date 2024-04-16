@@ -159,13 +159,16 @@
 
         <div class="comment-form">
           <h4>Leave a Comment</h4>
-          <form>
+          <form method="post" accept="{% url 'blog:single' pid=post.id %}">
+            {% comment %} {{form.as_p}} {% endcomment %}
+            {% csrf_token %}
+            <input type="hidden" name='post' value={{post.id}}>
             <div class="form-group form-inline">
               <div class="form-group col-lg-6 col-md-12 name">
                 <input
                   type="text"
                   class="form-control"
-                  id="name"
+                  name="name"
                   placeholder="Enter Name"
                   onfocus="this.placeholder = ''"
                   onblur="this.placeholder = 'Enter Name'"
@@ -175,7 +178,7 @@
                 <input
                   type="email"
                   class="form-control"
-                  id="email"
+                  name="email"
                   placeholder="Enter email address"
                   onfocus="this.placeholder = ''"
                   onblur="this.placeholder = 'Enter email address'"
@@ -186,7 +189,7 @@
               <input
                 type="text"
                 class="form-control"
-                id="subject"
+                name="subject"
                 placeholder="Subject"
                 onfocus="this.placeholder = ''"
                 onblur="this.placeholder = 'Subject'"
@@ -203,7 +206,7 @@
                 required=""
               ></textarea>
             </div>
-            <a href="#" class="primary-btn text-uppercase">Post Comment</a>
+            <button type="submit" class="primary-btn text-uppercase">Post Comment</button>
           </form>
         </div> 
         
