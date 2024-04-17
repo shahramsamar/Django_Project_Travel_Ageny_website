@@ -10,7 +10,6 @@
       </div>
       <div class="details">
         <a href={% url 'blog:single' pid=post.id %}><h6>{{post.title}}</h6></a>
-        {% comment %} <p>{{post.published_date |date:"d M Y"}}</p> {% endcomment %}
         <p>{{post.published_date |naturaltime}}</p>
 
       </div>

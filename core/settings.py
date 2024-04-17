@@ -60,8 +60,8 @@ MULTI_CAPTCHA_ADMIN = {
 
 
 
-# site framework
-SITE_ID = 1
+# sitemap framework
+SITE_ID = 2
 
 # robots
 ROBOTS_USE_HOST = True
@@ -103,13 +103,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'core.urls'
 
-# import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'DIRS': [BASE_DIR / 'templates'],
-        # 'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
