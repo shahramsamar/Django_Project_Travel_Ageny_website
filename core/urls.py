@@ -36,7 +36,7 @@ urlpatterns = [
          {'sitemaps':sitemaps},name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt',include('robots.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
-    path('summernote/', include('django_summernote.urls')),
+    path('tinymce/', include('tinymce.urls')),
     path('captcha/', include('captcha.urls')),
     
 
