@@ -27,11 +27,8 @@
             <div class="overlay overlay-bg"></div>
             <a href="#" target="_blank">
               <div class="thumb">
-                <img
-                  class="content-image img-fluid d-block mx-auto"
-                  src="{% static  'img/blog/cat-widget1.jpg' %}"
-                  alt=""
-                />
+                <img class="content-image img-fluid d-block mx-auto" src="{% static  'img/blog/cat-widget1.jpg' %}"
+                  alt="" />
               </div>
               <div class="content-details">
                 <h4 class="content-title mx-auto text-uppercase">
@@ -50,11 +47,8 @@
             <div class="overlay overlay-bg"></div>
             <a href="#" target="_blank">
               <div class="thumb">
-                <img
-                  class="content-image img-fluid d-block mx-auto"
-                  src="{% static  'img/blog/cat-widget2.jpg' %}"
-                  alt=""
-                />
+                <img class="content-image img-fluid d-block mx-auto" src="{% static  'img/blog/cat-widget2.jpg' %}"
+                  alt="" />
               </div>
               <div class="content-details">
                 <h4 class="content-title mx-auto text-uppercase">Politics</h4>
@@ -71,11 +65,8 @@
             <div class="overlay overlay-bg"></div>
             <a href="#" target="_blank">
               <div class="thumb">
-                <img
-                  class="content-image img-fluid d-block mx-auto"
-                  src="{% static  'img/blog/cat-widget3.jpg' %}"
-                  alt=""
-                />
+                <img class="content-image img-fluid d-block mx-auto" src="{% static  'img/blog/cat-widget3.jpg' %}"
+                  alt="" />
               </div>
               <div class="content-details">
                 <h4 class="content-title mx-auto text-uppercase">Food</h4>
@@ -101,12 +92,14 @@
           <div class="col-lg-3 col-md-3 meta-details">
             <ul class="tags">
               {% for cat in post.category.all %}
-              <a href="{% url "blog:category" cat_name=cat.name %}" >{{cat.name}}<a/> {% if not forloop.last %},{% endif %}
-              {% endfor %} 
+              <a href="{% url " blog:category" cat_name=cat.name %}">{{cat.name}}<a /> {% if not forloop.last %},{%
+                endif %}
+                {% endfor %}
             </ul>
             <div class="user-details row">
               <p class="user-name col-lg-12 col-md-12 col-6">
-                <a href="{% url "blog:author" author_username=post.author.username %}">{{post.author.get_full_name}}</a> <span class="lnr lnr-user"></span>
+                <a href="{% url " blog:author" author_username=post.author.username
+                  %}">{{post.author.get_full_name}}</a> <span class="lnr lnr-user"></span>
               </p>
               <p class="date col-lg-12 col-md-12 col-6">
                 <a href="#">{{post.published_date|date:"d M Y"}}</a>
@@ -122,21 +115,16 @@
           </div>
           <div class="col-lg-9 col-md-9">
             <div class="feature-img">
-              <img
-                class="img-fluid"
-                src="{{post.image.url}}"
-                alt=""
-              />
+              <img class="img-fluid" src="{{post.image.url}}" alt="" />
             </div>
-            <a class="posts-title" href="{% url 'blog:single' pid=post.id %}"
-              ><h3>{{post.title}}</h3></a
-            >
+            <a class="posts-title" href="{% url 'blog:single' pid=post.id %}">
+              <h3>{{post.title}}</h3>
+            </a>
             <p class="excert">
               {{post.content|safe}}
 
             </p>
-            <a href="{% url 'blog:single' pid=post.id %}"
-            " class="primary-btn">View More</a>
+            <a href="{% url 'blog:single' pid=post.id %}" " class=" primary-btn">View More</a>
           </div>
         </div>
         {% endfor %}
@@ -144,21 +132,21 @@
         <nav class="blog-pagination justify-content-center d-flex">
           <ul class="pagination">
             {% if posts.has_previous %}
-             <li class="page-item">
-                <a href="?page={{ posts.previous_page_number }}" class="page-link" aria-label="Previous">
-                  <span aria-hidden="true">
-                   <span class="lnr lnr-chevron-left"></span>
-                 </span>
-                </a>
-              </li>
+            <li class="page-item">
+              <a href="?page={{ posts.previous_page_number }}" class="page-link" aria-label="Previous">
+                <span aria-hidden="true">
+                  <span class="lnr lnr-chevron-left"></span>
+                </span>
+              </a>
+            </li>
             {% endif %}
-            
+
             {% for i in posts.paginator.page_range %}
             {% if posts.number == i %}
-               <li class="page-item active"><a href="?page={{i}}" class="page-link">{{i}}</a></li>
-              {% else %}
-                <li class="page-item "><a href="?page={{i}}" class="page-link">{{i}}</a></li>
-            {% endif %}    
+            <li class="page-item active"><a href="?page={{i}}" class="page-link">{{i}}</a></li>
+            {% else %}
+            <li class="page-item "><a href="?page={{i}}" class="page-link">{{i}}</a></li>
+            {% endif %}
             {% endfor %}
 
             {% if posts.has_next %}
@@ -169,16 +157,16 @@
               </a>
             </li>
             {% endif %}
-          </ul> 
-        </nav>  
+          </ul>
+        </nav>
       </div>
       <div class="col-lg-4 sidebar-widgets">
         <div class="widget-wrap">
-            {% include "blog/blog-search.html" %}
-            {% include "blog/blog-writer.html" %}
-            {% latest_posts %}
-            {% post_category %}
-            {% include "blog/blog-ads.html" %}
+          {% include "blog/blog-search.html" %}
+          {% include "blog/blog-writer.html" %}
+          {% latest_posts %}
+          {% post_category %}
+          {% include "blog/blog-ads.html" %}
           <div class="single-sidebar-widget newsletter-widget">
             <h4 class="newsletter-title">Newsletter</h4>
             <p>
@@ -193,23 +181,17 @@
                       <i class="fa fa-envelope" aria-hidden="true"></i>
                     </div>
                   </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inlineFormInputGroup"
-                    placeholder="Enter email"
-                    onfocus="this.placeholder = ''"
-                    onblur="this.placeholder = 'Enter email'"
-                  />
+                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email"
+                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'" />
                 </div>
               </div>
               <a href="#" class="bbtns">Subcribe</a>
             </div>
             <p class="text-bottom">You can unsubscribe at any time</p>
           </div>
+        </div>
       </div>
     </div>
-  </div>
 </section>
 <!-- End post-content Area -->
 
