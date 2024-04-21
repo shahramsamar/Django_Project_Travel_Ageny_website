@@ -21,7 +21,7 @@ def function():
 @register.simple_tag(name='comments_count')
 def function(pid):
     post = Post.objects.filter(pk=pid)
-    return Comment.objects.all() and Comment.objects.filter(post=pid, approved=True).count()
+    return Comment.objects.filter(post=pid, approved=True).count()
 
 
 
