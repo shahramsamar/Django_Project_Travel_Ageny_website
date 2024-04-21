@@ -50,7 +50,7 @@ def blog_single(request, pid):
             status=1, published_date__lte=date_time)
     post.counted_views += 1
     post.save()
-    comments = Comment.objects.all() and Comment.objects.filter(approved=True)
+    comments = Comment.objects.filter(post=post.id,approved=True)
 
     form = CommentForm()
     context = {'post': post,'comments': comments, 'form':form , 'next': related_posts.filter(id__gt=post.id).order_by('id').first(),
