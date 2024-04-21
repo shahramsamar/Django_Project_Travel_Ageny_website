@@ -15,4 +15,8 @@ urlpatterns = [
     # register/sign up
     # path('signup',signup_view , name='login'),
 
+    # forgot password
+    # path('forgot_password',forgot_password_view , name='forgot_password'),
+
+
 ]

@@ -29,7 +29,6 @@ def login_view(request):
             return render(request,'accounts/login.html',context)
         else:
             return HttpResponseRedirect("/")
-            # return render(request,'accounts/login.html',context)
 
 
 
@@ -41,3 +40,9 @@ def login_view(request):
 # def signup_view(request):
     
 #     return render(request, 'accounts/signup.html')
+
+
+# def forgot_password_view(request):
+    
+#     return render(request, 'accounts/forgot_password.html')
+
