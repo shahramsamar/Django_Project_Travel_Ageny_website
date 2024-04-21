@@ -113,7 +113,6 @@
         </div>
 
         <div class="comments-area">
-          {% comment %} <h4>{% comments_count post.id %}</h4> {% endcomment %}
           <h4>{{comments|length }} Comments</h4>
           {% for comment in comments %}
           <div class="comment-list left-padding">
@@ -128,9 +127,6 @@
                   <p class="comment">{{comment.message}}</p>
                 </div>
               </div>
-              {% comment %} <div class="reply-btn">
-                <a href="" class="btn-reply text-uppercase">reply</a>
-              </div> {% endcomment %}
             </div>
           </div>
           {% empty %}
@@ -143,7 +139,6 @@
         <div class="comment-form">
           <h4>Leave a Comment</h4>
           <form method="post" accept="{% url 'blog:single' pid=post.id %}">
-            {% comment %} {{form.as_p}} {% endcomment %}
             {% csrf_token %}
             <input type="hidden" name='post' value={{post.id}}>
             <div class="form-group form-inline">
@@ -167,31 +162,6 @@
             <button type="submit" class="primary-btn text-uppercase">Post Comment</button>
           </form>
         </div>
-
-        {% comment %} this is comment discus {% endcomment %}
-        {% comment %} <div class="comments-area">
-          <div id="disqus_thread"></div>
-          <script>
-            /**
-            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-            /*
-            var disqus_config = function () {
-            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-            };
-            */
-            (function () { // DON'T EDIT BELOW THIS LINE
-              var d = document, s = d.createElement('script');
-              s.src = 'https://127-0-0-1-8000-mke7cnzotb.disqus.com/embed.js';
-              s.setAttribute('data-timestamp', +new Date());
-              (d.head || d.body).appendChild(s);
-            })();
-          </script>
-          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
-              Disqus.</a></noscript>
-        </div> {% endcomment %}
-
       </div>
 
       <div class="col-lg-4 sidebar-widgets">
