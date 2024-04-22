@@ -27,6 +27,7 @@ class Post(models.Model):
     published_date = models.DateTimeField(null=True)
     create_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
+    login_require = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-create_date']

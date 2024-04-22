@@ -1,13 +1,15 @@
-from django.shortcuts import render, get_object_or_404
-from blog.models import Post, Comment
+from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from blog.forms import CommentForm
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
+from blog.models import Comment, Post
+# from django.contrib.auth.decorators import login_required
+# @login_required
 
-@login_required
 def blog_view(request, **kwargs):
     date_time = timezone.now()
     posts = Post.objects.filter(status=1, published_date__lte=date_time)
@@ -51,13 +53,15 @@ def blog_single(request, pid):
             status=1, published_date__lte=date_time)
     post.counted_views += 1
     post.save()
-    comments = Comment.objects.filter(post=post.id,approved=True)
+    if not post.login_require:
+        comments = Comment.objects.filter(post=post.id,approved=True)
 
-    form = CommentForm()
-    context = {'post': post,'comments': comments, 'form':form , 'next': related_posts.filter(id__gt=post.id).order_by('id').first(),
-                'previous': related_posts.filter(id__lt=post.id).order_by('-id').first()}
-    return render(request, 'blog/blog-single.html', context)
-
+        form = CommentForm()
+        context = {'post': post,'comments': comments, 'form':form , 'next': related_posts.filter(id__gt=post.id).order_by('id').first(),
+                    'previous': related_posts.filter(id__lt=post.id).order_by('-id').first()}
+        return render(request, 'blog/blog-single.html', context)
+    else:
+        return HttpResponseRedirect(reverse('accounts:login'))
 
 def blog_category(request, cat_name):
     posts = Post.objects.filter(status=1)
