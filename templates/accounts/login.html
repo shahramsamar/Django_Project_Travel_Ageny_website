@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-sm-offset-3 center-div">
                     <div class="omb_login">
-                        <h3 class="omb_authTitle">Login or <a href="#">Sign up</a></h3>
+                        <h3 class="omb_authTitle">Login or <a href="{% url 'accounts:signup' %}">Sign up</a></h3>
                         <!-- Social Buttons -->
                         <div class="row omb_row-sm-offset-3 omb_socialButtons">
                             <!-- Github -->
@@ -63,7 +63,7 @@
                                     <!-- Username -->
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                        <input type="text" class="form-control" name="username" placeholder="Email Address/Username">
+                                        <input type="text" class="form-control" name="username" placeholder="Email Address / Username">
                                     </div>
                                     <!-- Password -->
                                     <div class="input-group">
