@@ -1,22 +1,21 @@
 from django.urls import path
-from accounts.views import login_view
-
+from accounts.views import login_views, logout_views
 
 
 app_name = 'accounts'
 
 urlpatterns = [
     # login
-    path('login',login_view , name='login'),
+    path('login',login_views, name='login'),
 
     # logout
-    # path('logout',logout_view , name='login'),
+    path('logout',logout_views, name='logout'),
     
     # register/sign up
-    # path('signup',signup_view , name='login'),
+    # path('signup',signup_views , name='login'),
 
     # forgot password
-    # path('forgot_password',forgot_password_view , name='forgot_password'),
+    # path('forgot_password',forgot_password_views , name='forgot_password'),
 
 
 ]

@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
-from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+
+# from django.http import HttpResponseRedirect
 # Create your views here.
 # def login_view(request):
     # if request.user.is_authenticated:
@@ -12,7 +14,7 @@ from django.http import HttpResponseRedirect
     # if request.method =="POST":
     #     username = request.POST['username']
     #     password = request.POST['password']
-def login_view(request):
+def login_views(request):
         if not request.user.is_authenticated:
             if request.method == "POST":
                 form = AuthenticationForm(request=request, data=request.POST)
@@ -22,27 +24,26 @@ def login_view(request):
                     user = authenticate(request, username=username, password=password)
                     if user is not None:
                         login(request,user)
-                        return HttpResponseRedirect("/")
+                        return redirect("/")
         
             form = AuthenticationForm()     
             context = {"form":form}   
             return render(request,'accounts/login.html',context)
         else:
-            return HttpResponseRedirect("/")
+            return redirect("/")
+
+@login_required
+def logout_views(request):
+        logout(request)
+        return redirect("/")
 
 
-
-# def login_view(request):
-    
-#     return render(request, 'accounts/logout.html')
-
-
-# def signup_view(request):
+# def signup_views(request):
     
 #     return render(request, 'accounts/signup.html')
 
 
-# def forgot_password_view(request):
+# def forgot_password_views(request):
     
 #     return render(request, 'accounts/forgot_password.html')
 
