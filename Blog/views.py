@@ -5,8 +5,8 @@ from blog.forms import CommentForm
 from django.contrib import messages
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-
 from blog.models import Comment, Post
+
 # from django.contrib.auth.decorators import login_required
 # @login_required
 
@@ -62,6 +62,7 @@ def blog_single(request, pid):
         return render(request, 'blog/blog-single.html', context)
     else:
         return HttpResponseRedirect(reverse('accounts:login'))
+    login_url
 
 def blog_category(request, cat_name):
     posts = Post.objects.filter(status=1)

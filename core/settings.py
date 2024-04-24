@@ -164,4 +164,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #     "127.0.0.1",
 # ]
 
+# login_require
+# LOGIN_URL='/path/to/url'
 LOGIN_REDIRECT_URL ='/'
