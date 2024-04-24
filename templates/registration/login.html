@@ -1,6 +1,13 @@
-{%load static %}
-<!DOCTYPE html>
-<html lang="en">
+
+    <!-- <p></p>{{msg}}</p> -->
+    <!-- {% if request.user.authenticated %}
+    <p>user is authenticated as {{request.user.authenticated}}</p>
+    {% else %}
+    <p> user is not authenticated </p>
+    {% endif %} -->
+    {%load static %}
+    <!DOCTYPE html>
+    <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +27,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-sm-offset-3 center-div">
                     <div class="omb_login">
-                        <h3 class="omb_authTitle">Login or <a href="{% url 'accounts:signup' %}">Sign up</a></h3>
+                        <h3 class="omb_authTitle">Login or <a href="#">Sign up</a></h3>
                         <!-- Social Buttons -->
                         <div class="row omb_row-sm-offset-3 omb_socialButtons">
                             <!-- Github -->
@@ -38,6 +45,7 @@
                                 </a>
                             </div>  
                         </div>
+        
                         <!-- Or Separator -->
                         <div class="row omb_row-sm-offset-3 omb_loginOr">
                             <div class="col-xs-12 col-sm-6">
@@ -49,7 +57,7 @@
                         <!-- Login Form -->
                         <div class="row omb_row-sm-offset-3">
                             <div class="col-xs-12">
-                                <form class="omb_loginForm" action="{% url 'accounts:login' %}" autocomplete="off" method="post">
+                                <form class="omb_loginForm" action="{% url 'login' %}" autocomplete="off" method="post">
                                     {% csrf_token %}
                                     {% comment %} {{ form.as_p }} {% endcomment %}
                                     <!-- Username -->
@@ -85,5 +93,5 @@
             </div>
         </div>
     </body>
-</html>
+    </html>
     

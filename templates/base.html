@@ -16,7 +16,7 @@
 	<!-- meta character set -->
 	<meta charset="UTF-8">
 	<!-- Site Title -->
-	<title>Travel</title>
+	<title>base</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 	<!--
@@ -41,22 +41,13 @@
 					<div class="col-lg-6 col-sm-6 col-6 header-top-left">
 						<ul>
 							{% if request.user.is_authenticated %}
-						      <li><a href="#">Login is as {{request.user.username}}</a></li>
-							  <li><a href="{% url "accounts:logout" %}">Logout</a></li>
-
-							  {% else %}
-							  <li><a href="{% url "accounts:login" %}">Login</a></li>
-							  <li><a href="{% url "accounts:signup" %}">signup</a></li>
+							<li><a href="#">Login is as {{request.user.username}}</a></li>
+							<li><a href="{% url "accounts:logout" %}">Logout</a></li>
+							{% else %}
+							<li><a href="{% url "accounts:login" %}">Login</a></li>
+							<li><a href="{% url "accounts:signup" %}">signup</a></li>
 							{% endif %}
 						</ul>
-					</div>
-					<div class="col-lg-6 col-sm-6 col-6 header-top-right">
-						<div class="header-social">
-							<a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-dribbble"></i></a>
-							<a href="#"><i class="fa fa-behance"></i></a>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -79,7 +70,9 @@
 	</header><!-- #header -->
 
 	{% block content %}
+
 	{% endblock %}
+
 	<li>{% include 'messages.html' %}</li>
 
 	<!-- start footer Area -->
@@ -104,15 +97,11 @@
 							<div class="col">
 								<ul>
 									<li><a href="#">Home</a></li>
-									<li><a href="#">Feature</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="#">Portfolio</a></li>
+									<li><a href="#">About</a></li>
 								</ul>
 							</div>
 							<div class="col">
 								<ul>
-									<li><a href="#">Team</a></li>
-									<li><a href="#">Pricing</a></li>
 									<li><a href="#">Blog</a></li>
 									<li><a href="#">Contact</a></li>
 								</ul>

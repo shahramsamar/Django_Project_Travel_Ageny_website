@@ -11,7 +11,7 @@ urlpatterns = [
     # logout
     path('logout',logout_views, name='logout'),
     
-    # register/sign up
+    # registration/sign up
     path('signup',signup_views , name='signup'),
 
     # forgot password

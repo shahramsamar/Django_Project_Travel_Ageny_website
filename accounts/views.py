@@ -24,8 +24,7 @@ def login_views(request):
                     user = authenticate(request, username=username, password=password)
                     if user is not None:
                         login(request,user)
-                        return redirect("/")
-        
+                        return redirect("/") 
             form = AuthenticationForm()     
             context = {"form":form}   
             return render(request,'accounts/login.html',context)
@@ -44,7 +43,8 @@ def signup_views(request):
                 form = UserCreationForm(request.POST)       
                 if form.is_valid():
                     form.save()
-                    return reverse("accounts:login")  
+                    # return reverse("accounts:login")
+                    return redirect("/") 
         form = UserCreationForm()     
         context = {"form":form}   
         return render(request,'accounts/signup.html',context)
