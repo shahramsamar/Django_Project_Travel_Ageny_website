@@ -50,9 +50,14 @@ INSTALLED_APPS = [
     'taggit',
     'tinymce',
     'captcha',
-    
-    
 ]
+
+# AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',
+                           'accounts.backends.EmailBackend']
+
+
+
 
 #captcha admin setting
 MULTI_CAPTCHA_ADMIN = {
@@ -167,3 +172,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # login_require
 # LOGIN_URL='/path/to/url'
 LOGIN_REDIRECT_URL ='/'
+
+
