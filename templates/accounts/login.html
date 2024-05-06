@@ -39,16 +39,10 @@
                                     <!-- Login Button -->
                                     <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
                                 </form>
-                                <!-- Remember Me & Forgot Password -->
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-6">
-                                        <label class="checkbox">
-                                            <input type="checkbox" value="remember-me">Remember Me
-                                        </label>
-                                    </div>
+                                <!-- Forgot Password -->
                                     <div class="col-xs-12 col-sm-6">
                                         <p class="omb_forgotPwd">
-                                            <a href="#">Forgot password?</a>
+                                            <a href="{% url 'accounts:password-reset' %}">Forgot password?</a>
                                         </p>
                                     </div>
                                 </div>
