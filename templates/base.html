@@ -41,12 +41,6 @@
 					<div class="col-lg-6 col-sm-6 col-6 header-top-left">
 						<ul>
 							{% if request.user.is_authenticated %}
-								{% comment %} {% if request.user.username  == request.user.username %}
-									<li><a href="#">Login is as {{request.user.username}}</a></li>
-								{% endif %}	
-								{% if request.user.email  == request.user.email %}}
-									<li><a href="#">Login is as {{request.user.email}}</a></li>
-								{% endif %} {% endcomment %}
 							<li><a href="#">Login is as {{request.user.username}}</a></li>
 							<li><a href="{% url "accounts:logout" %}">Logout</a></li>
 							{% else %}
