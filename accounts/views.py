@@ -29,16 +29,17 @@ def login_views(request):
                     username = form.cleaned_data.get('username')
                     password = form.cleaned_data.get('password')     
                     user = authenticate(request, username=username, password=password)
+                    # messages.success(request,"Login successfully")
                     if user is not None:
                         login(request,user)
-                        messages.success(request,"Login successfully")
                         return redirect("/") 
                 else:
                     messages.error(request,'Invalid username/email or password, Please check username/email or password. ')
     
             form = AuthenticationForm()     
-            context = {"form":form}   
+            context = {"form":form} 
             return render(request,'accounts/login.html',context)
+
         else:
             messages.error(request, 'you are logged in')
             return redirect("/")
