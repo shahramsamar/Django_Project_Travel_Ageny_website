@@ -23,7 +23,7 @@
                         <!-- Login Form -->
                         <div class="row omb_row-sm-offset-3">
                             <div class="col-xs-12">
-                                <form class="omb_loginForm" action="{% url 'accounts:login' %}" autocomplete="off" method="POST">
+                                <form class="omb_loginForm" action="{% url 'login' %}" autocomplete="off" method="POST">
                                     {% csrf_token %}
                                     {% comment %} {{ form.as_p }} {% endcomment %}
                                     <!-- Username -->
@@ -39,10 +39,11 @@
                                     <!-- Login Button -->
                                     <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
                                 </form>
+                                <li>{% include 'messages.html' %}</li>
                                 <!-- Forgot Password -->
                                     <div class="col-xs-12 col-sm-6">
                                         <p class="omb_forgotPwd">
-                                            <a href="{% url 'accounts:password_reset' %}">Forgot password?</a>
+                                            <a href="{% url 'password_reset' %}">Forgot password?</a>
                                         </p>
                                     </div>
                                 </div>
