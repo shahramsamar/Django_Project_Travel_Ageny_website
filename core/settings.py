@@ -66,7 +66,7 @@ EMAIL_PORT = 587
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'Shahramsamar2010@gmail.com'
-EMAIL_HOST_PASSWORD = 'Pupysamar1100@#%'
+EMAIL_HOST_PASSWORD = 'xdqd vrql xdwb qxnl'
 
 
 #captcha admin setting
