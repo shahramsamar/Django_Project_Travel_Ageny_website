@@ -1,15 +1,14 @@
 {% load static %}
-
 <div class="active-recent-blog-carusel">
     {% for post in posts %}
     <div class="single-recent-blog-post item">
         <div class="thumb">
-            <img class="img-fluid" src="{{post.image.url}}" alt="">
+            <img class="img-fluid" src="{{post.image.url}}" alt>
         </div>
         <div class="details">
             <div class="tags">
                 {% for cat in post.category.all %}
-                    <li><a href="{% url "blog:category" cat_name=cat.name %}">{{cat.name}}</a></li>
+                <ul><li><a href="{% url "blog:category" cat_name=cat.name %}">{{cat.name}}</a></li></ul>
                 {% endfor %}
             </div>
             <a href="{% url 'blog:single' pid=post.id %}"><h4 class="title">{{post.title}}</h4></a>

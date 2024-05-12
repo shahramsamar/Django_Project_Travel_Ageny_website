@@ -9,18 +9,6 @@ from accounts.forms import Signup
 
 
 
-# from django.http import HttpResponseRedirect
-# Create your views here.
-# def login_view(request):
-    # if request.user.is_authenticated:
-    #     msg = f"user is authenticated as {request.user.username}"
-    # else:
-    #    msg = "user is not authenticated"
-
-    # if request.method =="POST":
-    #     username = request.POST['username']
-    #     password = request.POST['password']
-    
 def login_views(request):
         if not request.user.is_authenticated:
             if request.method == "POST":
