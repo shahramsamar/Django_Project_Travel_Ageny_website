@@ -1,3 +1,7 @@
+# env controls
+decouple==0.0.7
+# data base package
+psycopg2-binary==2.9.9
 asgiref==3.7.2
 bleach==6.1.0
 Django==4.2.7
@@ -9,7 +13,6 @@ django-robots==6.1
 django-simple-captcha==0.6.0
 django-summernote==0.8.20.0
 django-taggit==5.0.1
-django-tinymce==4.0.0
 extensions==0.4
 pillow==10.2.0
 six==1.16.0
