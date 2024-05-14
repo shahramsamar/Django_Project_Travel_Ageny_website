@@ -22,6 +22,7 @@ from django.contrib.sitemaps.views import sitemap
 from website.sitemaps import StaticViewSitemap
 from blog.sitemaps import BlogSitemap
 import debug_toolbar
+from core.views import home_view
 
 
 
@@ -29,20 +30,24 @@ sitemaps={'static':StaticViewSitemap,'blog':BlogSitemap}
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('website.urls')),
-    path('blog/', include('blog.urls')),
-    path('accounts/', include('accounts.urls')),
-    path('sitemap.xml', sitemap, 
-         {'sitemaps':sitemaps},name='django.contrib.sitemaps.views.sitemap'),
-    path('robots.txt',include('robots.urls')),
-    path("__debug__/", include("debug_toolbar.urls")),
-    path('tinymce/', include('tinymce.urls')),
-    path('captcha/', include('captcha.urls')),
-    
-
-
+    path('', home_view, name='home'),
+    # path('admin/', admin.site.urls),
+    # path('', include('website.urls')),
+    # path('blog/', include('blog.urls')),
+    # path('accounts/', include('accounts.urls')),
+    # path('sitemap.xml', sitemap, 
+    #      {'sitemaps':sitemaps},name='django.contrib.sitemaps.views.sitemap'),
+    # path('robots.txt',include('robots.urls')),
+    # path("__debug__/", include("debug_toolbar.urls")),
+    # path('tinymce/', include('tinymce.urls')),
+    # path('captcha/', include('captcha.urls')),
 ]
+
+
+
+
+
+
 # static('static,'base /static)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
