@@ -33,7 +33,8 @@ def blog_view(request, **kwargs):
         posts = posts.page(1) 
   
     context = {'posts': posts}
-    return render(request, 'blog/blog-home.html', context)
+    # return render(request, 'blog/blog-home.html', context)
+    return render(request, 'coming_soon.html', context)
 
 
 def blog_single(request, pid):
@@ -59,7 +60,8 @@ def blog_single(request, pid):
         form = CommentForm()
         context = {'post': post,'comments': comments, 'form':form , 'next': related_posts.filter(id__gt=post.id).order_by('id').first(),
                     'previous': related_posts.filter(id__lt=post.id).order_by('-id').first()}
-        return render(request, 'blog/blog-single.html', context)
+        # return render(request, 'blog/blog-single.html', context)
+        return render(request, 'coming_soon.html', context)
     else:
         return HttpResponseRedirect(reverse('accounts:login'))
     login_url
@@ -68,7 +70,8 @@ def blog_category(request, cat_name):
     posts = Post.objects.filter(status=1)
     posts = posts.filter(category__name=cat_name)
     context = {'posts': posts}
-    return render(request, 'blog/blog-home.html', context)
+    # return render(request, 'blog/blog-home.html', context)
+    return render(request, 'coming_soon.html', context)
 
 
 
@@ -79,6 +82,7 @@ def blog_search(request):
         if var :=request.GET.get("s"):
             posts = posts.filter(content__contains=var)
     context = {'posts': posts}
-    return render(request, 'blog/blog-home.html', context)
+    # return render(request, 'blog/blog-home.html', context)
+    return render(request, 'coming_soon.html', context)
 
 

@@ -6,10 +6,11 @@ from core.settings import *
 SECRET_KEY = 'django-insecure-t8_r3fao0u3x)f(x13t0soizooczzxh*&=5mbm=_v2qz&-#%h1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['my-project-final.liara.run']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # sitemap framework
 SITE_ID = 2

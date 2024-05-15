@@ -20,24 +20,32 @@ def login_views(request):
                     # messages.success(request,"Login successfully")
                     if user is not None:
                         login(request,user)
-                        return redirect("/") 
+                        # return redirect("/") 
+                        return redirect("coming_soon.html") 
+
+                    
                 else:
                     messages.error(request,'Invalid username/email or password, Please check username/email or password. ')
     
             form = AuthenticationForm()     
             context = {"form":form} 
-            return render(request,'accounts/login.html',context)
+            # return render(request,'accounts/login.html',context)
+            return render(request, 'coming_soon.html', context)
 
         else:
             messages.error(request, 'you are logged in')
-            return redirect("/")
+            # return redirect("/")
+            return redirect("coming_soon.html") 
+
 
 
 @login_required
 def logout_views(request):
         logout(request)
         messages.success(request,"Logout successfully")
-        return redirect("/")
+        # return redirect("/")
+        return redirect("coming_soon.html") 
+
 
 
 def signup_views(request):
@@ -47,14 +55,20 @@ def signup_views(request):
                 if form.is_valid():
                     form.save()
                     messages.success(request,"User Create  successfully")
-                    return redirect("/") 
+                    # return redirect("/") 
+                    return redirect("coming_soon.html") 
+
                 else:
                     messages.error(request, ' Failed User Created')
 
         form = Signup()     
         context = {"form":form}   
-        return render(request,'accounts/signup.html',context)
+        # return render(request,'accounts/signup.html',context)
+        return render(request, 'coming_soon.html', context)
+
     else:
-        return redirect("/")
+        # return redirect("/")
+        return redirect("coming_soon.html") 
+
 
 
