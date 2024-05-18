@@ -22,7 +22,8 @@ from django.contrib.sitemaps.views import sitemap
 from website.sitemaps import StaticViewSitemap
 from blog.sitemaps import BlogSitemap
 import debug_toolbar
-from core.views import home_view
+from django.urls import re_path
+from core.views import coming_soon
 
 
 
@@ -30,7 +31,6 @@ sitemaps={'static':StaticViewSitemap,'blog':BlogSitemap}
 
 
 urlpatterns = [
-    path('', home_view, name='home'),
     path('admin/', admin.site.urls),
     path('',include('website.urls')),
     path('blog/', include('blog.urls')),
@@ -41,6 +41,8 @@ urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
     path('tinymce/', include('tinymce.urls')),
     path('captcha/', include('captcha.urls')),
+    re_path(r'^.*$', coming_soon),
+
 ]
 
 

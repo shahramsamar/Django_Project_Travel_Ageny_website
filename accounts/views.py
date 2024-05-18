@@ -20,8 +20,7 @@ def login_views(request):
                     # messages.success(request,"Login successfully")
                     if user is not None:
                         login(request,user)
-                        # return redirect("/") 
-                        return redirect("coming_soon.html") 
+                        return redirect("/") 
 
                     
                 else:
@@ -29,13 +28,11 @@ def login_views(request):
     
             form = AuthenticationForm()     
             context = {"form":form} 
-            # return render(request,'accounts/login.html',context)
-            return render(request, 'coming_soon.html', context)
+            return render(request,'accounts/login.html',context)
 
         else:
             messages.error(request, 'you are logged in')
-            # return redirect("/")
-            return redirect("coming_soon.html") 
+            return redirect("/")
 
 
 
@@ -43,8 +40,7 @@ def login_views(request):
 def logout_views(request):
         logout(request)
         messages.success(request,"Logout successfully")
-        # return redirect("/")
-        return redirect("coming_soon.html") 
+        return redirect("/")
 
 
 
@@ -55,20 +51,17 @@ def signup_views(request):
                 if form.is_valid():
                     form.save()
                     messages.success(request,"User Create  successfully")
-                    # return redirect("/") 
-                    return redirect("coming_soon.html") 
+                    return redirect("/") 
 
                 else:
                     messages.error(request, ' Failed User Created')
 
         form = Signup()     
         context = {"form":form}   
-        # return render(request,'accounts/signup.html',context)
-        return render(request, 'coming_soon.html', context)
+        return render(request,'accounts/signup.html',context)
 
     else:
-        # return redirect("/")
-        return redirect("coming_soon.html") 
+        return redirect("/")
 
 
 

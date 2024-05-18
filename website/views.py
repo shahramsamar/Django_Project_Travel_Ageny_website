@@ -7,13 +7,11 @@ from website.forms import NameForm, ContactForm, NewsletterForm
 
 
 def index_view(request):
-    # return render(request, 'website/index.html')
-    return render(request,"coming_soon.html")
+    return render(request, 'website/index.html')
 
 
 def about_view(request):
-    # return render(request, 'website/about.html')
-    return render(request,"coming_soon.html")
+    return render(request, 'website/about.html')
 
 
 def contact_view(request):
@@ -28,8 +26,7 @@ def contact_view(request):
             messages.add_message(request, messages.ERROR,'your ticket  did not submited successfully')
 
     form = ContactForm()   
-    # return render(request, 'website/contact.html', {"form":form})
-    return render(request,"coming_soon.html" , {"form":form})
+    return render(request, 'website/contact.html', {"form":form})
 
 
 def newsletter_view(request):
@@ -37,12 +34,10 @@ def newsletter_view(request):
         form = NewsletterForm(request.POST)
         if form.is_valid():
             form.save()
-            # return HttpResponseRedirect("/")
-            return HttpResponseRedirect("coming_soon.html")
+            return HttpResponseRedirect("/")
 
         else:
-            # return HttpResponseRedirect("/")
-            return HttpResponseRedirect("coming_soon.html")
+            return HttpResponseRedirect("/")
 
 
 def test_view(request):

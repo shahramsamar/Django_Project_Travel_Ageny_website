@@ -87,6 +87,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'core.middleware.ComingSoonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -167,9 +168,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # login_require
 # LOGIN_URL='/path/to/url'
+LOGIN_REDIRECT_URL ='/'
 
-# LOGIN_REDIRECT_URL ='/'
-LOGIN_REDIRECT_URL ="coming_soon.html"
 
+MAINTENANCE_MODE = True
 
 
