@@ -41,7 +41,7 @@ urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
     path('tinymce/', include('tinymce.urls')),
     path('captcha/', include('captcha.urls')),
-    re_path(r'^.*$', coming_soon),
+    # re_path(r'^.*$', coming_soon),
 
 ]
 
