@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'taggit',
     'tinymce',
     'captcha',
+    'compressor',
 ]
 
 # AUTH_USER_MODEL = 'accounts.CustomUser'
