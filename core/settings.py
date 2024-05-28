@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'blog',
     'accounts',
     'robots',
-    'debug_toolbar',
     'taggit',
     'tinymce',
     'captcha',
