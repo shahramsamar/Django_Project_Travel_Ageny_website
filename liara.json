@@ -1,0 +1,24 @@
+
+{
+    "platform": "django",
+    "django": {
+      "pythonVersion": "3.12",
+      "collectStatic": true,
+      "compileMessages": false,
+      "modifySettings": true,
+      "timezone": "Asia/Tehran"
+      
+    },
+    "app": "travel-agency",
+    "disks": [
+      {
+        "name": "static",
+        "mountTo": "static"
+      },
+      {
+        "name": "media",
+        "mountTo": "media"
+      }
+    ]
+  }
+  
