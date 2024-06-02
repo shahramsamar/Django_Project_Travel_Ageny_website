@@ -1,14 +1,27 @@
 from core.settings import * 
+from decouple import config
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t8_r3fao0u3x)f(x13t0soizooczzxh*&=5mbm=_v2qz&-#%h1'
+SECRET_KEY = config('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG',default=False,cast=bool)
 
 ALLOWED_HOSTS = ['*']
+
+EMAIL_BACKEND =config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST',)
+EMAIL_PORT = config('EMAIL_PORT',cast=int)
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS',cast=bool)
+EMAIL_USE_SSL = config('EMAIL_USE_SSL',cast=bool)
+
+
 
 # sitemap framework
 SITE_ID = 2
@@ -28,24 +41,18 @@ SITE_ID = 2
 #         }
 #     }
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
-    DATABASES = {
+DATABASES = {
     'default': {
-        'ENGINE': "django.db.backends.postgresql",
-        'NAME': "postgresql",
-        'USER': "postgresql",
-        'PASSWORD': "postgresql",
-        'HOST': "127.0.0.1",
-        'PORT': "5432",
+        'ENGINE': config("DB_ENGINE"),
+        'NAME': config("DB_NAME"),
+        'USER': config("DB_USER"),
+        'PASSWORD':config("DB_PASSWORD"),
+        'HOST': config("DB_HOST"),
+        'PORT': config("DB_PORT",cast=int),
     }
 }
+
+
     
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

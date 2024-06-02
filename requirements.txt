@@ -3,6 +3,7 @@ bleach==6.1.0
 Django==4.2.7
 django-appconf==1.0.6
 django-compressor==4.4
+django-db-connection-pool==1.2.5
 django-debug-toolbar==4.3.0
 django-extensions==3.2.3
 django-multi-captcha-admin==2.0.0
@@ -12,10 +13,19 @@ django-simple-captcha==0.6.0
 django-taggit==5.0.1
 django-tinymce==4.0.0
 extensions==0.4
+greenlet==3.0.3
 pillow==10.2.0
+psycopg==3.1.19
+psycopg-binary==3.1.19
+psycopg2==2.9.9
+psycopg2-binary==2.9.9
+python-decouple==3.8
 rcssmin==1.1.1
 rjsmin==1.2.1
 six==1.16.0
+SQLAlchemy==2.0.30
+sqlparams==6.0.1
 sqlparse==0.4.4
+typing_extensions==4.12.1
 tzdata==2023.3
 webencodings==0.5.1
