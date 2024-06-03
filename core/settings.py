@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'blog',
     'accounts',
     'robots',
-    'debug_toolbar',
     'taggit',
     'tinymce',
     'captcha',
@@ -142,9 +141,6 @@ MEDIA_URL = 'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# INTERNAL_IPS = [
-#     "127.0.0.1",
-# ]
 
 # login_require
 # LOGIN_URL='/path/to/url'
