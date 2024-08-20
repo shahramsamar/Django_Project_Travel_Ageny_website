@@ -1,4 +1,4 @@
-{%load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,7 +11,19 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
         <style>
             .center-div {
-                margin-top: 100px; /* Adjust the margin-top value as needed */
+                margin-top: 100px; /* Adjust as needed */
+            }
+            .btn-block, .btn-inline {
+                width: 100%; /* Uniform button width */
+                text-align: center; /* Center the text */
+            }
+            .btn a {
+                color: white; /* White link text inside buttons */
+                text-decoration: none; /* Remove underline */
+                display: block; /* Link fills the entire button */
+            }
+            .btn a:hover {
+                color: white; /* Ensure text remains white on hover */
             }
         </style>
     </head>
@@ -25,7 +37,6 @@
                             <div class="col-xs-12">
                                 <form class="omb_loginForm" action="{% url 'login' %}" autocomplete="off" method="POST">
                                     {% csrf_token %}
-                                    {% comment %} {{ form.as_p }} {% endcomment %}
                                     <!-- Username -->
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -39,14 +50,17 @@
                                     <!-- Login Button -->
                                     <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
                                 </form>
-                                <li>{% include 'messages.html' %}</li>
-                                <!-- Forgot Password -->
-                                    <div class="col-xs-12 col-sm-6">
-                                        <p class="omb_forgotPwd">
-                                            <a href="{% url 'password_reset' %}">Forgot password?</a>
-                                        </p>
-                                    </div>
-                                </div>
+
+                                <!-- Signup and Forgot Password Buttons -->
+                                <button class="btn btn-lg btn-primary btn-block">
+                                    <a href="{% url 'signup' %}">Signup</a>
+                                </button>
+                                <button class="btn btn-lg btn-primary btn-block">
+                                    <a href="{% url 'password_reset' %}">Forgot password?</a>
+                                </button>
+
+                                <!-- Messages Template -->
+                                {% include 'messages.html' %} 
                             </div>
                         </div>
                     </div>
@@ -55,4 +69,3 @@
         </div>
     </body>
 </html>
-    
