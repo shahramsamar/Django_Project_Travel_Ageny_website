@@ -7,11 +7,11 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     # login
-    path('login',login_views, name='login'),
+    path('login/',login_views, name='login'),
     # logout
-    path('logout',logout_views, name='logout'),
+    path('logout/',logout_views, name='logout'),
     # registration/sign up
-    path('signup',signup_views , name='signup'),
+    path('signup/',signup_views , name='signup'),
     # forgot password
     path('password_reset/',auth_views.PasswordResetView.as_view(template_name='accounts/password_reset.html'),
          name='password_reset'),

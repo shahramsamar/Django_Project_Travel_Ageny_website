@@ -14,7 +14,7 @@ def blog_view(request, **kwargs):
     date_time = timezone.now()
     posts = Post.objects.filter(status=1, published_date__lte=date_time)
     
-    if kwargs.get('cat_name')!=None:
+    if kwargs.get('cat_name')!= None:
         posts = posts.filter(category__name=kwargs['cat_name'])
         
     if kwargs.get('author_username') != None:
@@ -61,8 +61,8 @@ def blog_single(request, pid):
                     'previous': related_posts.filter(id__lt=post.id).order_by('-id').first()}
         return render(request, 'blog/blog-single.html', context)
     else:
-        return HttpResponseRedirect(reverse('accounts:login'))
-    login_url
+        return HttpResponseRedirect(reverse('login'))
+
 
 def blog_category(request, cat_name):
     posts = Post.objects.filter(status=1)
