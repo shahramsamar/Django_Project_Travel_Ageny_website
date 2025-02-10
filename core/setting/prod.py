@@ -13,7 +13,7 @@ DEBUG = config('DEBUG',default=True,cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
-EMAIL_BACKEND =config('EMAIL_BACKEND',default='django.core.mail.backends.smtp.EmailBackend')
+EMAIL_BACKEND = config('EMAIL_BACKEND',default='django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = config('EMAIL_HOST',default='smtp.gmail.com')
 EMAIL_PORT = config('EMAIL_PORT',cast=int,default='587')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD',default='xdqd vrql xdwb qxnl')
@@ -47,16 +47,16 @@ DATABASES = {
         }
     }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': config("DB_ENGINE",default='django.db.backends.postgresql'),
-#         'NAME': config("DB_NAME",default='postgres'),
-#         'USER': config("DB_USER",default='postgres'),
-#         'PASSWORD':config("DB_PASSWORD",default='0000'),
-#         'HOST': config("DB_HOST",default='127.0.0.1'),
-#         'PORT': config("DB_PORT",cast=int,default='5432'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': config("DB_ENGINE",default='django.db.backends.postgresql'),
+        'NAME': config("DB_NAME",default='postgres'),
+        'USER': config("DB_USER",default='postgres'),
+        'PASSWORD':config("DB_PASSWORD",default='0000'),
+        'HOST': config("DB_HOST",default='127.0.0.1'),
+        'PORT': config("DB_PORT",cast=int,default='5432'),
+    }
+}
 
 
     
